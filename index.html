@@ -1,148 +1,67 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>FramePic</title>
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    color: white;
-    background: linear-gradient(to bottom, grey, black);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    font-family: Arial, sans-serif;
-  }
-
-  .title {
-    font-size: 2em;
-    margin-top: 20px;
-  }
-
-  .main-text {
-    font-size: 1.5em;
-    text-align: center;
-    max-width: 600px;
-  }
-
-  .footer {
-      display: flex;
-          justify-content: center;
-          width: 100%;
-          padding: 20px;
-  }
-
-  .footer button {
-      padding: 10px;
-          font-size: 1em;
-          cursor: pointer;
-          margin: 0 10px;
-  }
-
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-  }
-
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    color: black;
-  }
-
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .modal-body {
-    max-height: 300px;
-    overflow-y: auto;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FramePic</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+        }
+        .contact-info {
+            margin-top: 2em;
+            font-size: 1.1em;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid #fff;
+        }
+        a:hover {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="title">FramePic</div>
-  <p class="main-text">
-  If you have any problems during use, you can leave a message or send me an email, and I will solve it for you as soon as possible.
-  Email：qcclovcc@gmail.com
-  </p>
-  <p class="main-text">Thank you!</p>
-  <div class="footer">
-    <button onclick="openModal('contact')">Contact US</button>
-    <button onclick="openModal('privacy')">Privacy Policy</button>
-    <button onclick="openModal('agreement')">User Agreement</button>
-  </div>
+    <div class="container">
+        <h1>FramePic</h1>
+        <p>"FramePic" is a powerful and user-friendly application that allows you to easily add personalized frames and watermarks to your photos in seconds.
 
-  <!-- Modal for Contact Us -->
-  <div id="contact" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('contact')">&times;</span>
-      <p>Please contact us via the following email address:</p>
-      <p>qcclovcc@gmail.com</a></p>
+          Our application has a unique and rich photo frame library, whether it is a unique and novel design or a classic style, you can find it in "FramePic". With a few simple clicks and selections, you can add professional-grade frames to your photos to make them look even better.
+          
+          All these functions are integrated into a beautiful and practical interface. Whether you are a professional photographer or an ordinary user, you can add photo frames and watermarks in a few minutes, turning ordinary photos into works of art.
+          
+          Gorgeous photo frames, powerful picture protection, all at your fingertips. Download now!
+          "FramePic" adds more to your photos!</p>
+        <p>If you have any questions, feel free to contact us.</p>
+        <div class="contact-info">
+            <p>Mail：<a href="mailto:qcclovcc@gmail.com">qcclovcc@gmail.com</a></p>
+            <p>Telephone：<a href="tel:+8618137682146">+8618137682146</a></p>
+            <p><a href="https://note.youdao.com/s/18Ibw5dT" target="_blank">Privacy Policy</a> | <a href="https://note.youdao.com/s/dsGEFBmE" target="_blank">Terms Of Use</a></p>
+        </div>
     </div>
-  </div>
-
-  <!-- Modal for Privacy Policy -->
-  <div id="privacy" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('privacy')">&times;</span>
-      <div class="modal-body">
-        <p>Privacy Policy:https://note.youdao.com/s/18Ibw5dT</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal for User Agreement -->
-  <div id="agreement" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('agreement')">&times;</span>
-      <div class="modal-body">
-        <p>User Agreement:https://note.youdao.com/s/dsGEFBmE</p>
-      </div>
-    </div>
-  </div>
-
-<script>
-function openModal(modalId) {
-  document.getElementById(modalId).style.display = "block";
-}
-
-function closeModal(modalId) {
-  document.getElementById(modalId).style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  var modals = document.getElementsByClassName('modal');
-  for (var i = 0; i < modals.length; i++) {
-    if (event.target == modals[i]) {
-      modals[i].style.display = "none";
-    }
-  }
-}
-</script>
 </body>
 </html>
